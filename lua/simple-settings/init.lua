@@ -79,6 +79,13 @@ M.read_config = function(config_structure)
     end
 
     M.init = true
+    M.matched_setting_path = ""
+    M.current_settings = {}
+
+    for key, value in pairs(config_structure) do
+        M.current_settings[key] = value
+        M.default_fields[key] = true
+    end
 
     local global_settings = read_global_settings()
 
@@ -87,20 +94,16 @@ M.read_config = function(config_structure)
     end
 
     local current_dir = vim.fn.getcwd()
-
     local dir_settings = {}
     local matched_dir_setting_path = ""
     matched_dir_setting_path, dir_settings = get_directory_settings(global_settings, current_dir)
 
     M.matched_setting_path = matched_dir_setting_path
-    M.current_settings = {}
 
-    for key, value in pairs(config_structure) do
+    for key, _ in pairs(config_structure) do
         if dir_settings[key] ~= nil then
             M.current_settings[key] = dir_settings[key]
-        else
-            M.current_settings[key] = value
-            M.default_fields[key] = true
+            M.default_fields[key] = false
         end
     end
 end
