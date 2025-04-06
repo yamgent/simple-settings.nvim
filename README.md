@@ -34,7 +34,7 @@ Using lazy.nvim
             local name = simple_settings.get_field("name")
 
             -- use
-            vim.print(name .. " is " .. age)
+            vim.print(name .. " is " .. tostring(age))
         end
     },
 ```

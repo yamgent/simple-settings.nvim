@@ -116,7 +116,14 @@ M.get_field = function(field_name)
         error("should not call get_field() before read_config()")
     end
 
-    return M.current_settings[field_name]
+    local value = M.current_settings[field_name]
+
+    if value == nil then
+        -- guard against accidental typos
+        error("'" .. field_name .. "' is not a valid field name")
+    end
+
+    return value
 end
 
 return M
