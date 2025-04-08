@@ -54,3 +54,18 @@ Store the JSON in `~/.config/simple-settings/settings.json`
     }
 }
 ```
+
+### In neovim
+
+After configuring/modifying `settings.json`, the next time you start neovim,
+you will be met with this prompt:
+
+```
+~/.config/simple-settings/settings.json is not trusted.
+[i]gnore, (v)iew, (d)eny, (a)llow:
+```
+
+Press "a" to allow the plugin to read `settings.json`.
+
+If you accidentally deny it, you can also execute `:trust ~/.config/simple-settings/settings.json`
+to allow the plugin to read `settings.json` again.
