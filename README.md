@@ -67,5 +67,5 @@ you will be met with this prompt:
 
 Press "a" to allow the plugin to read `settings.json`.
 
-If you accidentally deny it, you can also execute `:trust ~/.config/simple-settings/settings.json`
-to allow the plugin to read `settings.json` again.
+If you accidentally deny it, you can also open `~/.config/simple-settings/settings.json`,
+and then run `:trust`, to allow the plugin to read `settings.json` again.
